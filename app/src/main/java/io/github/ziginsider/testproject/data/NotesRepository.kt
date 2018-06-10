@@ -4,7 +4,7 @@ interface NotesRepository {
 
     interface LoadNotesCallback {
 
-        fun onNotesLoaded(notes: List<Note>)
+        fun onNotesLoaded(notes: List<Note>?)
     }
 
     interface GetNoteCallback {
