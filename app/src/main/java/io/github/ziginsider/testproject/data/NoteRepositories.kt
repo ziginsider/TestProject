@@ -11,7 +11,7 @@ class NoteRepositories {
             if (null == repository) {
                 repository = InMemoryNotesRepository(notesServiceApi)
             }
-            return repository
+            return repository as NotesRepository
         }
     }
 }
