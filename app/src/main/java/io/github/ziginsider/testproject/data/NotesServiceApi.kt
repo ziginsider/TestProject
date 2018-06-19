@@ -9,7 +9,7 @@ interface NotesServiceApi {
 
     fun getAllNotes(callback: NotesServiceCallback<List<Note>>)
 
-    fun getNote(noteId: Note, callback: NotesServiceCallback<Note>)
+    fun getNote(noteId: String, callback: NotesServiceCallback<Note>)
 
     fun saveNote(note: Note)
 }
