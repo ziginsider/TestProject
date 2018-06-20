@@ -3,7 +3,13 @@ package io.github.ziginsider.testproject.data
 import android.support.annotation.VisibleForTesting
 import com.google.common.collect.ImmutableList
 
-class InMemoryNotesRepository(val notesServiceApi: NotesServiceApi) : NotesRepository {
+/**
+ * Concrete implementation to load notes from the a data source.
+ *
+ * @author Alex Kisel
+ * @since 2018-06-20
+ */
+class InMemoryNotesRepository(private val notesServiceApi: NotesServiceApi) : NotesRepository {
 
     @VisibleForTesting
     var cashNotes: List<Note>? = null
@@ -21,15 +27,20 @@ class InMemoryNotesRepository(val notesServiceApi: NotesServiceApi) : NotesRepos
         }
     }
 
-    override fun getNote(noteId: String, callback: NotesRepository.GetNoteCallback) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun saveNote(note: Note) {
+        notesServiceApi.saveNote(note)
+        refreshData()
     }
 
-    override fun saveNote(note: Note) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getNote(noteId: String, callback: NotesRepository.GetNoteCallback) {
+        notesServiceApi.getNote(noteId, object : NotesServiceApi.NotesServiceCallback<Note> {
+            override fun onLoaded(note: Note) {
+                callback.onNoteLoaded(note)
+            }
+        })
     }
 
     override fun refreshData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        cashNotes = null
     }
 }
