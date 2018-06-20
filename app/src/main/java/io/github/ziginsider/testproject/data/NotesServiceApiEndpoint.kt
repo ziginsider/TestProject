@@ -2,6 +2,13 @@ package io.github.ziginsider.testproject.data
 
 import android.support.v4.util.ArrayMap
 
+/**
+ * This is the endpoint for your data source. Typically, it would be a SQLite db and/or a server
+ * API. In this example, we fake this by creating the data on the fly.
+ *
+ * @author Alex Kisel
+ * @since 2018-06-20
+ */
 class NotesServiceApiEndpoint {
 
     companion object {
