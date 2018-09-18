@@ -7,11 +7,10 @@ class NoteRepositories {
 
         @Synchronized
         fun getInMemoryRepoInstance(notesServiceApi: NotesServiceApi): NotesRepository {
-            //checkNotNull(notesServiceApi)
-            if (null == repository) {
+            repository ?: run {
                 repository = InMemoryNotesRepository(notesServiceApi)
             }
-            return repository as NotesRepository
+            return repository as NotesRepository ?: InMemoryNotesRepository(notesServiceApi)
         }
     }
 }
