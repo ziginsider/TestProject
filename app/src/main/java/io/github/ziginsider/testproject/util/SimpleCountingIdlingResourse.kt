@@ -4,6 +4,17 @@ import android.support.test.espresso.IdlingResource
 import java.lang.IllegalArgumentException
 import java.util.concurrent.atomic.AtomicInteger
 
+/**
+ * A simple counter implementation of [IdlingResource] that determines idleness by
+ * maintaining an internal counter. When the counter is 0 - it is considered to be idle, when it is
+ * non-zero it is not idle. This is very similar to the way a [Semaphore] behaves.
+ *
+ * This class can then be used to wrap up operations that while in progress should block tests from
+ * accessing the UI.
+ *
+ * @author Alex Kisel
+ * @since 2018-09-18
+ */
 class SimpleCountingIdlingResourse(val resourceName: String) : IdlingResource {
 
     @Volatile

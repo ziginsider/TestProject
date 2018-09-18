@@ -6,6 +6,7 @@ import android.support.annotation.VisibleForTesting
 import android.support.test.espresso.IdlingResource
 import android.support.v7.widget.Toolbar
 import io.github.ziginsider.testproject.R
+import io.github.ziginsider.testproject.util.EspressoIdlingResource
 
 class NoteDetailActivity : AppCompatActivity() {
 
