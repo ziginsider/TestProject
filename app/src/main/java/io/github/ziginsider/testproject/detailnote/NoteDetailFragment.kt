@@ -23,20 +23,13 @@ class NoteDetailFragment : Fragment(), NoteDetailContract.View {
         return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        actionListener = NoteDetailPresenter(Injection.provideNotesRepository(), this)
-//    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        actionsListener = NotesDetailPresenter(
-            Injection.provideNotesRepository(),
-            this
-        )
+        actionListener = NoteDetailPresenter(Injection.provideNotesRepository(), this)
     }
 
-    override fun setProgressIndicator() {
+    override fun setProgressIndicator(active: Boolean) {
+
     }
 
     override fun showMissingNote() {

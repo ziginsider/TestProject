@@ -38,12 +38,12 @@ class SimpleCountingIdlingResourse(val resourceName: String) : IdlingResource {
     }
 
     /**
-    * Decrements the count of in-flight transactions to the resource being monitored.
-    *
-    * If this operation results in the counter falling below 0 - an exception is raised.
-    *
-    * @throws IllegalStateException if the counter is below 0.
-    */
+     * Decrements the count of in-flight transactions to the resource being monitored.
+     *
+     * If this operation results in the counter falling below 0 - an exception is raised.
+     *
+     * @throws IllegalStateException if the counter is below 0.
+     */
     fun decrement() {
         val counterVal = counter.decrementAndGet()
         if (counterVal == 0) {
