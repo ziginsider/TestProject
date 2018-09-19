@@ -10,7 +10,7 @@ interface NoteDetailContract {
 
     interface View {
 
-        fun setProgressNote()
+        fun setProgressIndicator(active: Boolean)
 
         fun showMissingNote()
 

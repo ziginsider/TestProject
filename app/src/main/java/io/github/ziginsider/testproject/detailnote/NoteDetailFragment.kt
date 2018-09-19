@@ -17,18 +17,26 @@ class NoteDetailFragment : Fragment(), NoteDetailContract.View {
     private val detailDescription: TextView by bindView(R.id.note_detail_description)
     private val detailImage: ImageView by bindView(R.id.note_detail_image)
 
-    private var actionListener: NoteDetailContract.UserActionsListener? = null
+    private var actionsListener: NoteDetailContract.UserActionsListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        actionListener = NoteDetailPresenter(Injection.provideNotesRepository(), this)
+//    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        actionListener = NoteDetailPresenter(Injection.provideNotesRepository(), this)
+        actionsListener = NotesDetailPresenter(
+            Injection.provideNotesRepository(),
+            this
+        )
     }
 
-    override fun setProgressNote() {
+    override fun setProgressIndicator() {
     }
 
     override fun showMissingNote() {

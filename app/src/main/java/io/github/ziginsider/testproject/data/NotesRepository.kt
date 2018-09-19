@@ -9,7 +9,7 @@ interface NotesRepository {
 
     interface GetNoteCallback {
 
-        fun onNoteLoaded(note: Note)
+        fun onNoteLoaded(note: Note?)
     }
 
     fun getNotes(callback: LoadNotesCallback)
