@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment
 
 class AddNoteFragment : Fragment() {
 
-    private var actionListener: AddNoteContract.UserActionsListener
+    private var actionListener: AddNoteContract.UserActionsListener? = null
 
 
     companion object {
